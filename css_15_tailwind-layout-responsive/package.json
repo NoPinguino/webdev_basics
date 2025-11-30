@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  },
+  "scripts": {
+    "watch": "tailwindcss --input ./src/input.css --output ./src/output.css --watch",
+    "build": "tailwindcss --input ./src/input.css --output ./src/output.css",
+    "serve": "browser-sync start --server src --files 'src/**/*'",
+    "dev": "npx npm-run-all --parallel watch serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "daisyui": "^5.5.5"
+  }
+}
