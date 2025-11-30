@@ -1,0 +1,55 @@
+body {
+    background-color: #1a1a1a;
+}
+h1, h2, h3, h4, h5, h6, p, a {
+    color: #fff;
+}
+main {
+    margin: 60px auto;
+    width: 100dvw;
+    max-width: 1200px;
+}
+.title-container {
+    text-align: center;
+}
+.title-container h1 {
+    font-size: 48px;
+}
+.title-container p {
+    font-size: 18px;
+}
+.title-container a {
+    display: block;
+    margin: 20px 0px;
+    font-size: 26px;
+}
+.title-container a:hover {
+    color: #9400d3;
+}
+
+section {
+    margin: 50px 0px;
+}
+.sect-title {
+    margin-bottom: 20px;
+}
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: #ff8c00 2px solid;
+}
+.card h5 {
+    color: #dc143c;
+}
+.card p {
+    color: #555;
+}
+
+.carousel-item {
+    height: 600px;
+}
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

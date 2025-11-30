@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive and Dark Mode</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body id="body-container" class="w-screen h-screen">
+    <div
+      class="flex flex-col items-center w-screen min-h-screen bg-zinc-100 dark:bg-zinc-900"
+    >
+      <header>
+        <nav
+          class="flex justify-between bg-cyan-500 h-20 w-screen px-4 sm:px-20 lg:px-40 xl:px-60 items-center"
+        >
+          <div class="flex items-center">
+            <svg
+              class="w-9 dark:fill-zinc-100"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g data-name="54.Code">
+                <path
+                  d="M12 24a12 12 0 1 1 12-12 12.013 12.013 0 0 1-12 12zm0-22a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2z"
+                />
+                <path
+                  d="M9.293 16.707 4.586 12l4.707-4.707 1.414 1.414L7.414 12l3.293 3.293-1.414 1.414zM14.707 16.707l-1.414-1.414L16.586 12l-3.293-3.293 1.414-1.414L19.414 12l-4.707 4.707z"
+                />
+              </g>
+            </svg>
+            <h2 class="ml-2 text-base dark:text-zinc-100 lg:text-xl font-bold">
+              BrandLogo
+            </h2>
+          </div>
+          <div class="sm:hidden dropdown dropdown-end">
+            <div
+              tabindex="0"
+              class="p-1 cursor-pointer bg-cyan-500 border-2 border-zinc-900 dark:border-zinc-100 rounded-xl"
+            >
+              <svg
+                class="w-8 h-8 fill-zinc-900 dark:fill-zinc-100"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 30 30"
+              >
+                <path
+                  d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"
+                ></path>
+              </svg>
+            </div>
+
+            <ul
+              tabindex="0"
+              class="dropdown-content menu z-[99] p-2 shadow-lg bg-zinc-100 dark:bg-zinc-900 dark:border-zinc-100 dark:border-2 rounded-box w-44 mt-2"
+            >
+              <li>
+                <a
+                  class="text-lg underline dark:text-zinc-100"
+                  href="index.html"
+                  target="_blank"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg underline dark:text-zinc-100"
+                  href="https://www.w3schools.com/"
+                  target="_blank"
+                  >W3-School</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg underline dark:text-zinc-100"
+                  href="https://tailwindcss.com/docs/responsive-design"
+                  target="_blank"
+                  >Tailwind</a
+                >
+              </li>
+            </ul>
+          </div>
+          <ul class="hidden sm:flex gap-8">
+            <li>
+              <a
+                class="text-lg font-bold dark:text-zinc-100 hover:text-cyan-200 dark:hover:text-zinc-300 transition-all"
+                href="index.html"
+                target="_blank"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-lg font-bold dark:text-zinc-100 hover:text-cyan-200 dark:hover:text-zinc-300 transition-all"
+                href="https://www.w3schools.com/"
+                target="_blank"
+                >W3-School</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-lg font-bold dark:text-zinc-100 hover:text-cyan-200 dark:hover:text-zinc-300 transition-all"
+                href="https://tailwindcss.com/docs/responsive-design"
+                target="_blank"
+                >Tailwind</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="px-4 w-screen lg:w-2/3">
+        <section class="my-8">
+          <h1
+            class="my-4 text-4xl font-bold text-center text-zinc-900 dark:text-zinc-100"
+          >
+            Learn about breakpoints.
+          </h1>
+          <p class="text-justify text-zinc-900 dark:text-zinc-100">
+            Breakpoints in Tailwind CSS are predefined screen-size thresholds
+            that let you apply responsive styles with ease using simple
+            prefix-based utility classes. Instead of writing custom media
+            queries, you can attach breakpoint prefixes—like sm:, md:, lg:, xl:,
+            or 2xl:—directly to your classes to control how elements behave at
+            different viewport widths. Tailwind follows a mobile-first approach,
+            meaning styles without prefixes apply to all screens, while
+            breakpoint-prefixed classes take effect only at and above their
+            respective sizes. This makes building responsive layouts both fast
+            and intuitive, while keeping your CSS consistent and maintainable.
+            Learn more abot the breakpoints:
+            <a
+              class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600"
+              href="https://tailwindcss.com/docs/responsive-design#using-custom-breakpoints"
+              >Tailwind documentation</a
+            >
+            .
+          </p>
+
+          <table class="w-full mt-4">
+            <thead>
+              <tr>
+                <th
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  Breakpoint prefix
+                </th>
+                <th
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  Minimum width
+                </th>
+                <th
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  CSS
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  sm:
+                </td>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  40rem (640px)
+                </td>
+                <td
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  @media (width >= 40rem) { ... }
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  md:
+                </td>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  48rem (768px)
+                </td>
+                <td
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  @media (width >= 48rem) { ... }
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  lg:
+                </td>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  64rem (1024px)
+                </td>
+                <td
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  @media (width >= 64rem) { ... }
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  xl:
+                </td>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  80rem (1280px)
+                </td>
+                <td
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  @media (width >= 80rem) { ... }
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  2xl:
+                </td>
+                <td
+                  class="p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  96rem (1536px)
+                </td>
+                <td
+                  class="hidden sm:table-cell p-2 border border-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
+                >
+                  @media (width >= 96rem) { ... }
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="my-8">
+          <h2 class="my-4 text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            Movile first philosopy.
+          </h2>
+          <p class="text-justify text-zinc-900 dark:text-zinc-100">
+            The mobile-first philosophy in Tailwind CSS means that styles are
+            designed to work on small screens by default, and additional styles
+            are layered on for larger screens using breakpoint prefixes. This
+            approach ensures that the base experience is optimized for mobile
+            devices, which are often the most common or constrained environment.
+            By starting with mobile styles, developers can progressively enhance
+            the layout and functionality for tablets, laptops, and desktops
+            without duplicating CSS. In Tailwind, this is reflected in the way
+            utility classes are applied: unprefixed classes target all screens,
+            while classes with prefixes like md: or lg: override or extend these
+            styles on larger viewports, promoting efficient, scalable, and
+            responsive design.
+          </p>
+        </section>
+
+        <section class="my-8">
+          <h2 class="my-4 text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            Dark-mode page design.
+          </h2>
+          <p class="my-4 text-justify text-zinc-900 dark:text-zinc-100">
+            In Tailwind CSS, the dark: pseudo-class allows you to define styles
+            specifically for dark mode, enabling you to easily create a dark and
+            light theme for your website. To use it, you first enable dark mode
+            in your tailwind.config.js file—either by setting darkMode: 'media'
+            to follow the user’s system preference, or darkMode: 'class' to
+            toggle dark mode manually with a class. Once enabled, you can prefix
+            any utility class with dark: to apply it only in dark mode, for
+            example, bg-white dark:bg-gray-900 would make a background white in
+            light mode and dark gray in dark mode. Combining this with a toggle
+            button or a script that adds/removes the dark class on the html or
+            body element allows you to build fully responsive pages that switch
+            seamlessly between light and dark themes.
+          </p>
+          <p class="my-4 text-justify text-zinc-900 dark:text-zinc-100">
+            On this page, dark mode is implemented as a class on the <body> tag. You can toggle it by clicking the button below.
+          </p>
+          <div class="my-8 flex justify-center">
+            <button
+              id="btnToggleDarkMode"
+              class="p-4 border-2 rounded-2xl border-gray-200 text-zinc-900 dark:text-zinc-100 bg-sky-400 hover:bg-sky-500 dark:bg-sky-600 dark:hover:bg-sky-700 transition-all"
+              onclick=""
+            >
+              Toggle dark-mode
+            </button>
+          </div>
+          <p class="my-4 text-justify text-zinc-900 dark:text-zinc-100">
+            Feel free to copy my script:
+          </p>
+          <p class="sm:hidden my-4 text-justify text-zinc-900 dark:text-zinc-100">
+            Please, use a desktop or larger screen if you want to see the script.
+          </p>
+          <div class="hidden sm:block p-4 bg-zinc-50 dark:bg-zinc-800 rounded">
+            <pre>
+              <code class="dark:text-zinc-100">
+  const btn = document.getElementById("btnToggleDarkMode");
+  const body = document.getElementById("body-container");
+  btn.addEventListener("click", function () {
+    body.classList.toggle("dark");
+  });</code>
+            </pre>
+          </div>
+
+        </section>
+
+
+      </main>
+    </div>
+    <!-- Script to toggle between dark and light mode --->
+    <script>
+      const btn = document.getElementById("btnToggleDarkMode"); // My button id
+      const body = document.getElementById("body-container"); // My body id
+      btn.addEventListener("click", function () {
+        body.classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>

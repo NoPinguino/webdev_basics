@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login Page Tailwind.</title>
+        <link href="./output.css" rel="stylesheet" />
+    </head>
+
+    <body
+        class="bg-teal-400 w-dvw h-dvh flex flex-col justify-center items-center px-4"
+    >
+        <h1 class="mb-16 text-4xl font-bold text-zinc-50">
+            Good to see you again!
+        </h1>
+        <form
+            class="bg-zinc-50 w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-3/5 max-w-screen-sm px-8 py-4 shadow-lg"
+            action="submit"
+        >
+            <div class="my-4">
+                <label class="block mb-1" for="">Email:</label>
+                <input
+                    class="w-full px-4 py-2 bg-gray-100 focus:outline-none border-2 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/50"
+                    type="email"
+                    placeholder="Write your email..."
+                    id="email-input"
+                    name="email-input"
+                />
+            </div>
+            <div class="my-4">
+                <label class="block mb-1" for="">Password:</label>
+                <input
+                    class="w-full px-4 py-2 bg-gray-100 focus:outline-none border-2 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/50"
+                    type="password"
+                    placeholder="Write your password..."
+                    id="pswd-input"
+                    name="pswd-input"
+                />
+            </div>
+            <div class="my-4">
+                <button
+                    class="mt-4 px-4 py-2 text-zinc-50 bg-teal-400 hover:bg-teal-600 transition-all border-none w-full rounded-xl shadow-lg"
+                >
+                    Log In
+                </button>
+            </div>
+
+            <div class="flex justify-center gap-2 my-4">
+                <p class="text-gray-500">Not registered?</p>
+                <a
+                    class="text-teal-500 hover:text-teal-700 transition-all"
+                    href="#"
+                    >Create an account</a
+                >
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+}
+.nav-container {
+    margin: 50px 0;
+}
+.nav1, .nav2, .nav3 {
+    margin: 50px auto;
+}
+
+/* PRIMER NAV BAR */
+.nav1 ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #0182e7;
+}
+.nav1 button {
+    all: unset;
+    border: none;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    background-color: #0182e7;
+    cursor: pointer;
+}
+.nav1 li, .nav1 button {
+    border-radius:10px;
+    /* alinea el texto bien en el centro de las cajas */
+    display: flex;
+    align-items: center;
+}
+.nav1 a, .nav1 button {
+    padding: 8px;
+}
+.nav1 li:hover, .nav1 button:hover {
+    background-color: #1a9bff;
+}
+.nav1 a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    /* IMPORTANTE: absolute toma la posición del primer contenedor padre posicionado */
+    position: relative;
+}
+.nav1 a::after {
+    content: "";
+    position: absolute;
+    /* Como el ancho es 80%, dejo un 10% a la izquierda como "margen" y así estará centrado */
+    width: 80%;
+    left: 10%;
+    bottom: 6px;
+    height: 2px;
+    background-color: #eee;
+    border-radius: 2px;
+    transform: scaleX(0); /* Lo oculta */
+    transition: transform 0.3s;
+}
+.nav1 a:hover::after {
+    transform: scaleX(1); /* Lo muestra (:hover únicamente) */
+}
+
+/* SEGUNDO NAV BAR */
+.nav2 ul {
+    padding: 10px;
+    width: 220px;
+    background-color: #11111d;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.nav2 button {
+    all: unset; /* Elimina los paddings, margins y estilos por defecto de la etiqueta button */
+    font: inherit; /* Se asegura de heredar los estilos de texto */
+    cursor: pointer;
+    box-sizing: border-box; /* Al eliminar estilos, hay que volver a especificar */
+    background-color: #11111d;
+    border: none;
+    text-align: start;
+}
+.nav2 a, .nav2 button {
+    display: block; /* Display: block para poner padding vertical a elementos in-line */
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav2 a:hover, .nav2 button:hover {
+    background-color: #ffffff;
+}
+.nav2 a:hover, .nav2 button:hover {
+    color: #11111d;
+}
+
+/* TERCER NAV BAR */
+
+.nav3 ul {
+    background-color: #fe7e70;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+.nav3 button {
+    all: unset;
+    background-color: #fe7e70;
+    border: none;
+    cursor: pointer;
+}
+.nav3 a, .nav3 button {
+    color: white;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+}
+.nav3 .dropdown-content {
+    display: none;
+}
+.nav3 .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    min-width: 160px;
+    background-color: #fe7e70;
+}
+.nav3 a:hover, .nav3 button:hover {
+    background-color: #ff8d81;
+}

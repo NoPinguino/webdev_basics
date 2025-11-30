@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --dark-color: #1a1a1a;
+    --light-color: #efefef;
+    --light-color-secondary: #e9e9e9;
+    /* Close to zero darker - Closer to nine lighter */
+    --purple-000: #3E065F;
+    --purple-555: #700B97;
+    --purple-777: #8E05C2;
+}
+body {
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--dark-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p,a,span,label {
+    color: var(--light-color);
+}
+
+/* NAV-BAR */
+.navbar-brand span {
+    color: var(--dark-color);
+}
+.header-container {
+    background-color: var(--light-color);
+}
+.custom_navlink {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--purple-777);;
+    transition: all 0.2s ease 0s;
+}
+.custom_navlink:hover {
+    color: var(--purple-555);
+    text-shadow: .5px 0px 2px #777;
+}
+.custom_btn {
+    padding: 5px 15px;
+    text-align: center;
+    border: 2px solid var(--purple-777);;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+.custom_btn:hover {
+    color: #efefef;
+    border: 2px solid var(--purple-000);
+    background-color: var(--purple-777);
+}
+
+/* OUR TEAM */
+.card-our-team {
+    max-width: 250px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.card-our-team h5, .card-our-team h6 {
+    text-align: center;
+}
+.card-our-team_img {
+    width: 140px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* REGISTER */
+.register-form .custom_btn {
+    width: 250px;
+    background-color: var(--purple-777);
+    color: var(--light-color);
+}
+.register-form .custom_btn:hover {
+    background-color: var(--purple-555);
+}
+
+/* LOG IN FORM */
+.login-form_container {
+    padding: 3rem;
+    border-radius: 1rem;
+    width: 900px;
+    background-color: var(--light-color);
+
+    box-shadow: 3px 8px 10px #777;
+}
+.login-form_wraper {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.login-form_container label, .login-form_container a {
+    color: var(--dark-color);
+    transition: all ease-in-out .3s;
+}
+.login-form_container a:hover {
+    color: var(--purple-777);
+}
+.login-form_container button {
+    width: 100%;
+    font-weight: 700;
+    background-color: var(--purple-777);
+}
+.login-form_container button:hover {
+    width: 100%;
+    background-color: var(--purple-555);
+}
+
+/* FAQ */
+.container_faq-btn {
+    width: 100%;
+}
+.custom_faq-btn.btn {
+    width: 100%;
+    padding: 10px 0;
+    color: var(--light-color);
+    background-color: var(--purple-777);
+    border: none;
+    outline: none;
+}
+.custom_faq-btn.btn:hover {
+    background-color: var(--purple-555);
+}
+.custom_faq-btn.btn:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.collapse-faq {
+    background-color: var(--light-color);
+}
+
+/* SUPPORT */
+.support-card {
+    width: 560px;
+    padding: 20px 50px;
+}
+.faq-svg-row {
+    display: flex;
+    justify-content: center;
+}
+.support-card svg {
+    width: 96px;
+}
+.support-card h5, .support-card h6, .support-card p {
+    color: var(--dark-color);
+}
+.support-card a {
+    color: var(--purple-777);
+    text-decoration:underline;
+    transition: all ease-in-out .2s;
+}
+.support-card a:hover {
+    text-decoration:underline;
+    color: var(--purple-555);
+    text-shadow: 0.5px 0px 2px #555;
+}
+.support-card button {
+    color: var(--purple-777);
+    text-decoration:underline;
+    transition: all ease-in-out .2s;
+}
+.support-card button:hover {
+    color: var(--light-color);
+    background-color: var(--purple-777);
+    border: var(--purple-000) 2px solid;
+    text-decoration:underline;
+    transition: all ease-in-out .2s;
+}
+.background-support-light {
+    position: fixed;
+    bottom: 0px;
+    background-color: var(--light-color-secondary);
+    height: 40dvh;
+    width: 100dvw;
+    z-index: -1;
+}
+.support-cards-container {
+    height: calc(100dvh - 68px);
+    display: flex;              
+    align-items: center;
+    justify-content: center;
+}
+
+/* BUY NOW */
+.buy-card {
+    width: 330px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.buy-card .card-head {
+    padding: 20px;
+    background-color: var(--purple-777);
+}
+.buy-card svg {
+    width: 100px;
+}
+.buy-card button {
+    background-color: var(--purple-777);
+}
+.buy-card button:hover {
+    background-color: var(--purple-555);
+}
+.buy-card button:focus {
+    background-color: var(--purple-555);
+    border-color: var(--purple-000);
+    box-shadow: none;
+}

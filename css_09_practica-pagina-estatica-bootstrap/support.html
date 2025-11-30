@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Bootstrap</title>
+    <!-- ARCHIVOS DE BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Recurso de iconos -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> 
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+    <header class="header-container">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <!-- Clase contenedor deja margenes en pantallas grandes -->
+            <div class="container-xxl">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <svg width="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="54.Code"><path d="M12 24a12 12 0 1 1 12-12 12.013 12.013 0 0 1-12 12zm0-22a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2z"/><path d="M9.293 16.707 4.586 12l4.707-4.707 1.414 1.414L7.414 12l3.293 3.293-1.414 1.414zM14.707 16.707l-1.414-1.414L16.586 12l-3.293-3.293 1.414-1.414L19.414 12l-4.707 4.707z"/></g></svg>
+                    <span class="fs-3 fw-bold ms-2">BootstrapPage</span>
+                </a>
+
+                <!-- Botón para NavBar desplegable en pantallas de móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Icono para el contenido del botón -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="main-nav" class="collapse navbar-collapse justify-content-end align-center">
+                    <ul class="navbar-nav d-md-flex align-items-md-center">
+                        <!-- Item 1 de navbar -->
+                        <li class="nav-item mx-2">
+                            <a href="team.html" class="navlink custom_navlink">Our Team</a>
+                        </li>
+                        <!-- Item 2 de navbar -->
+                        <li class="nav-item mx-2">
+                            <a href="buy.html" class="navlink custom_navlink">Buy Now</a>
+                        </li>
+                        <!-- Item 3 de navbar -->
+                        <li class="nav-item mx-2">
+                            <a href="support.html" class="navlink custom_navlink">Support</a>
+                        </li>
+                        <!-- Item 4 de navbar -->
+                        <li class="nav-item mx-2">
+                            <a href="faq.html" class="navlink custom_navlink">FAQ</a>
+                        </li>
+                        <!-- Item 5 de navbar: Duplicado, versión pantalla pequeña y versión pantalla mediana/grande -->
+                        <li class="nav-item mx-2">
+                            <a href="login-form.html" class="navlink d-md-none custom_navlink">Log In</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="login-form.html" class="navlink d-none d-md-inline btn btn-primary custom_navlink custom_btn">Log In</a>
+                        </li>
+                        <!-- Item 6 de navbar: Duplicado, versión pantalla pequeña y versión pantalla mediana/grande -->
+                        <li class="nav-item mx-2">
+                            <a href="register-form.html" class="navlink d-md-none custom_navlink">Register</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="register-form.html" class="navlink d-none d-md-inline btn-md-up btn btn-primary custom_navlink custom_btn">Register</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="support-cards-container">
+
+        <div class="d-flex justify-content-between">
+            <div class="card support-card mx-5">
+                <div class="card-body">
+                    <div class="faq-svg-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"/></svg>
+                    </div>
+                    <h5 class="card-title text-center fw-bold my-3">You can call us</h5>
+                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi voluptate quis eum id ea illum incidunt debitis numquam nemo possimus.</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="card-link">+0 555 555 555</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card support-card mx-5">
+                <div class="card-body">
+                    <div class="faq-svg-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g data-name="39-Speech Bubble"><path d="M13 32a1 1 0 0 1-1-1v-5h-1A11 11 0 0 1 0 15v-4A11 11 0 0 1 11 0h10a11 11 0 0 1 11 11v4a11 11 0 0 1-11 11h-1.59l-5.71 5.71a1 1 0 0 1-.7.29zM11 2a9 9 0 0 0-9 9v4a9 9 0 0 0 9 9h2a1 1 0 0 1 1 1v3.59l4.29-4.29A1 1 0 0 1 19 24h2a9 9 0 0 0 9-9v-4a9 9 0 0 0-9-9z"/><path d="M6 12h20v2H6zM8 7h16v2H8zM8 17h16v2H8z"/></g></svg>
+                    </div>
+                    <h5 class="card-title text-center fw-bold my-3">Contact our support</h5>
+                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi voluptate quis eum id ea illum incidunt debitis numquam nemo possimus.</p>
+                    <div class="d-flex justify-content-center">
+                        <button href="#" class="btn btn-primary custom_btn card-link text-center d-block">Contact support</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="background-support-light"></div>
+    <footer>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "daisyui": "^5.5.5",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.18"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "serve": "browser-sync start --server src --files 'src/**/*'",
+    "dev": "npx npm-run-all --parallel watch serve"
+  }
+}

@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+.container {
+    background-color: lightseagreen;
+    margin: auto;
+    padding: 20px;
+    width: 100dvw;
+    max-width: 1200px;
+}
+p {
+    color: aliceblue;
+    font-size: 40px;
+}
+
+/*
+    Escribe las Querys de mayor a menor si usas max-width (mi forma favorita)
+    Escribe las Querys de menor a mayor si usas min-width
+    :)
+*/
+@media (max-width: 1200px) {
+    .container {
+        background-color: deeppink;
+    }
+    p {
+        font-size: 32px;
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        background-color: chocolate;
+    }
+    p {
+        font-size: 24px;
+    }
+}
+@media (max-width: 600px) {
+    .container {
+        background-color: blueviolet;
+    }
+    p {
+        font-size: 18px;
+    }
+}
