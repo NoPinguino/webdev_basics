@@ -1,4 +1,4 @@
-// Some conditional examples and challenges.
+// Some conditional examples.
 // Understand that what we are compering, must return true or false.
 // If it returns true, we will execute the code block.
 
