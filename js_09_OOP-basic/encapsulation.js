@@ -11,6 +11,7 @@ class BankAccount {
     this.#balance = balance;
     this.#pswd_acc = pswd_acc;
   }
+  //Examples on getters and setters:
   setPSWD_ACC(newPSWD) {
     this.#pswd_acc = newPSWD;
   }
@@ -56,8 +57,19 @@ let myBankAcc = new BankAccount("Jhon", 2000, "1234");
 console.log(myBankAcc);
 myBankAcc.printBalance();
 
-// Tests on nested-functions with session logged in
+// Tests on nested-functions with session logged in:
 const session = myBankAcc.login("1234");
 session.deposit(200);
 session.withdraw(100);
 myBankAcc.printBalance();
+
+// Example on what happens when an exeption is throwed (un-comment and try it yourself)
+/*
+const invalidSession = myBankAcc.login("password");
+invalidSession.withdraw(500);
+*/
+
+/*
+Feel free to expand this example of Classes and encapsulation, I recommend you to create another nested function,
+try a 'changePassword' function, in which you'll also need a valid session-token.
+*/
