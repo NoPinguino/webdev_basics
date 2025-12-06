@@ -19,6 +19,9 @@ class BankAccount {
     return this.#balance;
   }
   set balance(balance) {
+    if (balance < 0) {
+      throw new Error("Balance cannot be negative!");
+    }
     this.#balance = balance;
   }
   // Other methods:
@@ -57,6 +60,7 @@ console.log(undefBankAcc);
 let myBankAcc = new BankAccount("Jhon", 2000, "1234");
 console.log(myBankAcc);
 myBankAcc.printBalance();
+console.log(myBankAcc.balance); // Usage of get - NOT A FUNCTION, DON'T USE PARENTHESIS LIKE balance() <--- NOT
 
 // Tests on nested-functions with session logged in:
 const session = myBankAcc.login("1234");
