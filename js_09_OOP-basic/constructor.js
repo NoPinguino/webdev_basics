@@ -13,5 +13,6 @@ class Person {
   }
 }
 let objPerson = new Person("Jhon", 20);
+console.log(`Person is ${typeof objPerson}`);
 console.log(objPerson);
 console.log(objPerson.greetings());
