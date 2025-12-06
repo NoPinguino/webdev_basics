@@ -133,28 +133,87 @@ Choose one directory below and follow the matching instructions.
 
 ---
 
-## Usage examples
+## Initialize a new project with `npm run dev` and Tailwind CSS
 
-Use this repo as a **practice map**:
+Use this guide if you want to start **from scratch** with a small project that:
 
-- **Explore layout techniques**
-  - [css_03_flexbox](css_03_flexbox/) to practice `display: flex` and alignment
-  - [css_04_gridbox-basics](css_04_gridbox-basics/) and [css_05_gridbox-advanced](css_05_gridbox-advanced/) for grid layouts
+- serves your files with **live reload** using `npm run dev`
+- compiles **Tailwind CSS** in watch mode
 
-- **Build responsive UIs**
-  - [css_07_media-query](css_07_media-query/) with native CSS media queries
-  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) for Tailwind breakpoints + dark mode
+This setup works on **GNU/Linux and macOS**. Windows users may need to adjust the quotes in the scripts.
 
-- **Compare component libraries**
-  - [css_08_bootstrap-basics](css_08_bootstrap-basics/) — Bootstrap components and utilities
-  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) — Tailwind + DaisyUI components
+### 1. Initialize the project and add BrowserSync
 
-- **Learn JS fundamentals**
-  - [js_01_basic-variables](js_01_basic-variables/) — variables
-  - [js_02_operations](js_02_operations/) — operators and expressions
-  - [js_03_data-types](js_03_data-types/) — types and coercion
+Create a new folder for your project and run:
 
-You can combine these folders into small teaching modules or mini-courses.
+```bash
+npm init -y
+npm install --save-dev browser-sync
+```
+
+Then create a `package.json` (or update the one that was generated) with at least:
+
+```json
+{
+  "scripts": {
+    "serve": "browser-sync start --server src --files 'src/**/*.*'",
+    "dev": "npm run serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}
+```
+
+### 2. Project structure
+
+Organize your files like this:
+
+```text
+project/
+├─ src/
+│  ├─ index.html
+│  ├─ style.css
+│  └─ script.js
+└─ package.json
+```
+
+Now you can run a live server with:
+
+```bash
+npm run dev
+```
+
+### 3. Add Tailwind CSS
+
+Install Tailwind and its CLI:
+
+```bash
+npm install tailwindcss @tailwindcss/cli
+```
+
+Create `src/input.css` and import Tailwind:
+
+```css
+@import "tailwindcss";
+```
+
+Build your CSS in watch mode:
+
+```bash
+npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+```
+
+Finally, import the generated CSS in your HTML (for example in `src/index.html`):
+
+```html
+<link href="./output.css" rel="stylesheet">
+```
+
+You will typically run **two terminals**:
+
+- Terminal 1: `npm run dev` (BrowserSync live server)
+- Terminal 2: `npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch` (Tailwind compiler)
 
 ---
 
