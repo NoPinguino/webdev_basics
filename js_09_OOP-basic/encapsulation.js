@@ -12,15 +12,16 @@ class BankAccount {
     this.#pswd_acc = pswd_acc;
   }
   //Examples on getters and setters:
-  setPSWD_ACC(newPSWD) {
+  set password(newPSWD) {
     this.#pswd_acc = newPSWD;
   }
-  getBalance() {
+  get balance() {
     return this.#balance;
   }
-  setBalance(balance) {
+  set balance(balance) {
     this.#balance = balance;
   }
+  // Other methods:
   printBalance() {
     console.log(`Current balance for ${this.owner}: ${this.#balance}`);
   }
