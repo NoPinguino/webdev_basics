@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "serve": "browser-sync start --server src --files 'src/**/*.*'",
+    "dev": "npm run serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  },
+  "description": "",
+  "main": "script.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
