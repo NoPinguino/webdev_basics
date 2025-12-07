@@ -215,6 +215,8 @@ You will typically run **two terminals**:
 - Terminal 1: `npm run dev` (BrowserSync live server)
 - Terminal 2: `npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch` (Tailwind compiler)
 
+Once you have finish installing Tailwind, it's posible that you may need to restart your IDE for class recommendations.
+
 ---
 
 ## Scripts cheat sheet (by folder)
