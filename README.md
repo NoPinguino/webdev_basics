@@ -7,50 +7,63 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![Node.js >= 18](https://img.shields.io/badge/Node.js-%E2%89%A5%2018-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
-A curated set of small, focused exercises and mini-projects to learn core web development concepts: semantic HTML, modern CSS (Flexbox, Grid, responsive design), Bootstrap, Tailwind CSS (CLI, Vite + React, Next.js), and JavaScript fundamentals.
+A curated set of small, focused exercises and mini-projects to **learn the foundations of modern frontend development**:
 
-Use this repository as a playground to explore, compare, and practice frontend building blocks with progressively more advanced setups.
+- **Semantic HTML** and clean document structure  
+- **Modern CSS**: Flexbox, Grid, responsive design, and layout thinking  
+- **Component libraries**: Bootstrap and Tailwind CSS (including dark mode and utility-first workflow)  
+- **Introductory JavaScript**: variables, operations, and data types  
+- **Real-world tooling**: Node.js, Tailwind CLI, Vite (React), and Next.js setups for beginners  
+
+Use this repository as a **learning path** and **practice playground** for students or self‑learners who want to go from basic static pages to framework-based projects.
 
 ---
 
 ## Repository structure
 
-Each directory is a self-contained example. Open the HTML directly for pure HTML/CSS demos, or install dependencies and run the dev server for Node-based ones.
+Each directory is a self-contained example designed to practice a **specific concept**. Open the HTML directly for pure HTML/CSS demos, or install dependencies and run the dev server for Node-based ones.
 
-- CSS fundamentals
-  - [css_01_login-page](css_01_login-page/) — HTML/CSS login form UI
-  - [css_02_navbar](css_02_navbar/) — Responsive navigation bar
-  - [css_03_flexbox](css_03_flexbox/) — Flexbox layout basics
-  - [css_04_gridbox-basics](css_04_gridbox-basics/) — CSS Grid basics
-  - [css_05_gridbox-advanced](css_05_gridbox-advanced/) — CSS Grid advanced techniques
-  - [css_06_mini-shop-practica](css_06_mini-shop-practica/) — Mini shop static pages (home, products, error)
-  - [css_07_media-query](css_07_media-query/) — Media queries and responsive utilities
-  - [css_08_bootstrap-basics](css_08_bootstrap-basics/) — Bootstrap components and layout
-  - [css_09_practica-pagina-estatica-bootstrap](css_09_practica-pagina-estatica-bootstrap/) — Static site with Bootstrap
+- **CSS fundamentals** (visual design, layout & responsive thinking)
+  - [css_01_login-page](css_01_login-page/) — HTML/CSS login form UI (forms, basic layout, inputs/buttons)
+  - [css_02_navbar](css_02_navbar/) — Responsive navigation bar (horizontal layout, menus, hover states)
+  - [css_03_flexbox](css_03_flexbox/) — Flexbox layout basics (axis, alignment, spacing)
+  - [css_04_gridbox-basics](css_04_gridbox-basics/) — CSS Grid basics (rows, columns, gaps)
+  - [css_05_gridbox-advanced](css_05_gridbox-advanced/) — CSS Grid advanced techniques (areas, complex layouts)
+  - [css_06_mini-shop-practica](css_06_mini-shop-practica/) — Mini shop static pages (home, products, error) focusing on layout consistency and UI structure
+  - [css_07_media-query](css_07_media-query/) — Media queries and responsive utilities (mobile-first design)
+  - [css_08_bootstrap-basics](css_08_bootstrap-basics/) — Bootstrap components and layout (grid system, utilities, ready-made components)
+  - [css_09_practica-pagina-estatica-bootstrap](css_09_practica-pagina-estatica-bootstrap/) — Static site with Bootstrap (building a small multi-section page)
 
-- Tailwind CSS
-  - [css_12_tailwind-basic-installation](css_12_tailwind-basic-installation/) — Tailwind CLI build + BrowserSync (no framework)
-  - [css_13_tailwind-login-page](css_13_tailwind-login-page/) — Tailwind login page with live dev server
-  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) — Responsive Tailwind + dark mode + DaisyUI
-  - [css_15_tailwind-layout-responsive](css_15_tailwind-layout-responsive/) — Tailwind v4 CLI, responsive layout
-  - Framework integrations:
-    - [css_10_tailwind-vite-installation](css_10_tailwind-vite-installation/) — React + Vite + Tailwind v4 (see its [README](css_10_tailwind-vite-installation/README.md))
-    - [css_11_tailwind-nextjs-installation](css_11_tailwind-nextjs-installation/) — Next.js + Tailwind v4 (see its [README](css_11_tailwind-nextjs-installation/README.md))
+- **Tailwind CSS** (utility-first CSS & modern workflows)
+  - [css_12_tailwind-basic-installation](css_12_tailwind-basic-installation/) — Tailwind CLI build + BrowserSync (no framework): **installation, configuration, and build pipeline**
+  - [css_13_tailwind-login-page](css_13_tailwind-login-page/) — Tailwind login page: **utility classes, spacing, colors, typography**
+  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) — Responsive Tailwind + dark mode + DaisyUI: **breakpoints, themes, and component styling**
+  - [css_15_tailwind-layout-responsive](css_15_tailwind-layout-responsive/) — Tailwind v4 CLI, responsive layout: **layout composition and page structure**
+  - **Framework integrations** (how Tailwind fits into modern JS frameworks):
+    - [css_10_tailwind-vite-installation](css_10_tailwind-vite-installation/) — React + Vite + Tailwind v4 (see its [README](css_10_tailwind-vite-installation/README.md)): **project setup, dev server, and component-based UI**
+    - [css_11_tailwind-nextjs-installation](css_11_tailwind-nextjs-installation/) — Next.js + Tailwind v4 (see its [README](css_11_tailwind-nextjs-installation/README.md)): **file-based routing and app structure**
 
-- JavaScript fundamentals
-  - [js_01_basic-variables](js_01_basic-variables/) — Variables, types overview
-  - [js_02_operations](js_02_operations/) — Arithmetic, assignment, logical operators
-  - [js_03_data-types](js_03_data-types/) — Primitives vs objects, coercion
+- **JavaScript fundamentals** (core language concepts for beginners)
+  - [js_01_basic-variables](js_01_basic-variables/) — Variables, `let`/`const`, naming, and basic usage
+  - [js_02_operations](js_02_operations/) — Arithmetic, assignment, and logical operators in practice
+  - [js_03_data-types](js_03_data-types/) — Primitives vs objects, type coercion, and basic debugging with `console.log`
 
 ---
 
 ## Why this project is useful
 
-- Bite-sized, focused examples for quick learning and reference
-- Clear progression from simple static pages to framework setups
-- Side-by-side comparison of layout techniques (Flexbox vs Grid)
-- Realistic dev workflows: Tailwind CLI, Vite, and Next.js
-- Ready-to-run examples you can tweak and extend
+This repository is aimed at **students, bootcamp attendees, and self-taught developers** who need **hands-on practice**:
+
+- Bite-sized, focused examples for **quick learning and reference**  
+- Clear progression from **simple static pages** to **framework setups** (Vite/React, Next.js)  
+- Side-by-side comparison of **layout techniques** (Flexbox vs Grid) and **CSS approaches** (plain CSS vs Bootstrap vs Tailwind)  
+- Realistic dev workflows: Tailwind CLI, Vite, and Next.js so learners see **how real projects are structured and run**  
+- Ready-to-run examples you can **tweak, break, and rebuild** to solidify concepts  
+
+You can use it for:
+- Classroom exercises
+- Homework or practice sets
+- Personal study roadmap for frontend basics
 
 ---
 
@@ -58,7 +71,7 @@ Each directory is a self-contained example. Open the HTML directly for pure HTML
 
 ### Prerequisites
 
-- For static HTML/CSS examples: any modern browser
+- For static HTML/CSS examples: **any modern browser**
 - For Node-based examples (Tailwind CLI, Vite/React, Next.js):
   - Node.js 18+ and npm
 
@@ -72,8 +85,8 @@ npm -v
 
 Choose one directory below and follow the matching instructions.
 
-1) Pure HTML/CSS examples (no Node required)
-- Examples: css_01 to css_09 (except where noted)
+1) **Pure HTML/CSS examples (no Node required)**  
+- Examples: `css_01` to `css_09` (except where noted)  
 - How to run:
   - Option A: Open the `index.html` file in your browser
   - Option B (optional local server):
@@ -83,8 +96,8 @@ Choose one directory below and follow the matching instructions.
     # then open http://localhost:5173 in your browser
     ```
 
-2) Tailwind CSS (CLI, no framework)
-- Examples: css_12_tailwind-basic-installation, css_13_tailwind-login-page, css_14_tailwind-responsive-darkmode, css_15_tailwind-layout-responsive
+2) **Tailwind CSS (CLI, no framework)**  
+- Examples: `css_12_tailwind-basic-installation`, `css_13_tailwind-login-page`, `css_14_tailwind-responsive-darkmode`, `css_15_tailwind-layout-responsive`  
 - Typical workflow:
   ```bash
   cd css_12_tailwind-basic-installation   # or css_13_... / css_14_... / css_15_...
@@ -96,8 +109,8 @@ Choose one directory below and follow the matching instructions.
   # Open the 'src/index.html' in your browser (BrowserSync may open it automatically)
   ```
 
-3) React + Vite + Tailwind v4
-- Example: css_10_tailwind-vite-installation
+3) **React + Vite + Tailwind v4**  
+- Example: `css_10_tailwind-vite-installation`  
 - How to run:
   ```bash
   cd css_10_tailwind-vite-installation
@@ -107,8 +120,8 @@ Choose one directory below and follow the matching instructions.
   ```
 - Details: see [css_10_tailwind-vite-installation/README.md](css_10_tailwind-vite-installation/README.md)
 
-4) Next.js + Tailwind v4
-- Example: css_11_tailwind-nextjs-installation
+4) **Next.js + Tailwind v4**  
+- Example: `css_11_tailwind-nextjs-installation`  
 - How to run:
   ```bash
   cd css_11_tailwind-nextjs-installation
@@ -120,39 +133,105 @@ Choose one directory below and follow the matching instructions.
 
 ---
 
-## Usage examples
+## Initialize a new project with `npm run dev` and Tailwind CSS
 
-- Explore layout techniques:
-  - [css_03_flexbox](css_03_flexbox/) to practice `display: flex` and alignment
-  - [css_04_gridbox-basics](css_04_gridbox-basics/) and [css_05_gridbox-advanced](css_05_gridbox-advanced/) for grid layouts
-- Build responsive UIs:
-  - [css_07_media-query](css_07_media-query/) with native CSS media queries
-  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) for Tailwind breakpoints + dark mode
-- Compare component libraries:
-  - [css_08_bootstrap-basics](css_08_bootstrap-basics/)
-  - [css_14_tailwind-responsive-darkmode](css_14_tailwind-responsive-darkmode/) with Tailwind + DaisyUI
-- Learn JS fundamentals:
-  - [js_01_basic-variables](js_01_basic-variables/)
-  - [js_02_operations](js_02_operations/)
-  - [js_03_data-types](js_03_data-types/)
+Use this guide if you want to start **from scratch** with a small project that:
+
+- serves your files with **live reload** using `npm run dev`
+- compiles **Tailwind CSS** in watch mode
+
+This setup works on **GNU/Linux and macOS**. Windows users may need to adjust the quotes in the scripts.
+
+### 1. Initialize the project and add BrowserSync
+
+Create a new folder for your project and run:
+
+```bash
+npm init -y
+npm install --save-dev browser-sync
+```
+
+Then create a `package.json` (or update the one that was generated) with at least:
+
+```json
+{
+  "scripts": {
+    "serve": "browser-sync start --server src --files 'src/**/*.*'",
+    "dev": "npm run serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}
+```
+
+### 2. Project structure
+
+Organize your files like this:
+
+```text
+project/
+├─ src/
+│  ├─ index.html
+│  ├─ style.css
+│  └─ script.js
+└─ package.json
+```
+
+Now you can run a live server with:
+
+```bash
+npm run dev
+```
+
+### 3. Add Tailwind CSS
+
+Install Tailwind and its CLI:
+
+```bash
+npm install tailwindcss @tailwindcss/cli
+```
+
+Create `src/input.css` and import Tailwind:
+
+```css
+@import "tailwindcss";
+```
+
+Build your CSS in watch mode:
+
+```bash
+npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+```
+
+Finally, import the generated CSS in your HTML (for example in `src/index.html`):
+
+```html
+<link href="./output.css" rel="stylesheet">
+```
+
+You will typically run **two terminals**:
+
+- Terminal 1: `npm run dev` (BrowserSync live server)
+- Terminal 2: `npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch` (Tailwind compiler)
 
 ---
 
 ## Scripts cheat sheet (by folder)
 
-- Tailwind CLI examples
+- **Tailwind CLI examples**
   - `npm run build` — one-off compile CSS
   - `npm run watch` — compile CSS in watch mode
   - `npm run serve` — static server + live reload (if present)
   - `npm run dev` — combined watch + serve (if present)
 
-- React + Vite
+- **React + Vite**
   - `npm run dev` — start the dev server
   - `npm run build` — production build
   - `npm run preview` — preview production build locally
   - `npm run lint` — run ESLint (if configured)
 
-- Next.js
+- **Next.js**
   - `npm run dev` — start Next dev server
   - `npm run build` — production build
   - `npm start` — start production server
@@ -177,9 +256,10 @@ Refer to each folder’s `package.json` for the exact scripts supported.
 
 ## Contributing
 
-Contributions are welcome:
+Contributions are welcome, especially ones that **improve the learning experience**:
+
 - Pick a folder and improve accessibility, responsiveness, or code clarity
-- Add a new example demonstrating a specific concept
+- Add a new example demonstrating a specific **teachable concept** (e.g. forms, animations, basic DOM manipulation)
 - Submit small, focused pull requests with a clear description
 
 Recommended PR checklist:
@@ -192,5 +272,4 @@ Recommended PR checklist:
 ## Maintainers
 
 This repository is maintained by the repository owner. If you’d like to collaborate, open an issue to discuss ideas or improvements.
-
 ---
