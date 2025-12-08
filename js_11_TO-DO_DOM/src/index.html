@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <script src="script.js" type="module" defer></script>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="w-screen min-h-screen bg-gray-700">
+    <main class="p-10 grid grid-cols-12 gap-6">
+      <!--- TASK CREATOR DIV --->
+      <div class="bg-orange-400 col-span-12 p-6 rounded-2xl shadow-lg">
+        <h1 class="text-2xl text-gray-50 font-bold">
+          Welcome to my to-do list.
+        </h1>
+        <div id="task-creator" class="grid grid-cols-12 gap-2 mt-5">
+          <input
+            id="inp_new-task"
+            class="col-span-8 bg-gray-50 p-2 rounded"
+            placeholder="I'm going to-do..."
+            type="text"
+          />
+          <select
+            class="col-span-2 bg-gray-50 p-2 rounded"
+            name="sel-priority"
+            id="sel_task-priority"
+          >
+            <option value="high-priority">High priority task.</option>
+            <option value="normal-priority">Normal priority task.</option>
+          </select>
+          <button
+            id="btn_submit-task"
+            class="col-span-2 bg-gray-50 hover:bg-orange-300 p-2 rounded cursor-pointer ease-in-out duration-200"
+          >
+            Submit task.
+          </button>
+          <button
+            id="btn_delete"
+            class="col-start-11 col-span-2 bg-gray-50 hover:bg-orange-300 p-2 rounded cursor-pointer ease-in-out duration-200"
+          >
+            Delete selected tasks.
+          </button>
+        </div>
+      </div>
+      <!--- HIGH PRIORITY LIST --->
+      <div
+        id="high-priority-container"
+        class="bg-red-500/85 col-span-6 p-6 rounded-2xl"
+      >
+        <h2 class="text-lg text-gray-50 font-bold">High priority list:</h2>
+        <ul id="high-priority-list" class="bg-gray-50 rounded mt-4 p-4"></ul>
+      </div>
+      <!--- NORMAL PRIORITY LIST --->
+      <div
+        id="normal-priority-container"
+        class="bg-orange-400 col-span-6 p-6 rounded-2xl"
+      >
+        <h2 class="text-lg text-gray-50 font-bold">Normal priority list:</h2>
+        <ul id="normal-priority-list" class="bg-gray-50 rounded mt-4 p-4"></ul>
+      </div>
+    </main>
+  </body>
+</html>

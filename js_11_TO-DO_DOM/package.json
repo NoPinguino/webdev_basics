@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "serve": "browser-sync start --server src --files 'src/**/*.*'",
+    "dev": "npm run serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  },
+  "name": "js_11_to-do_dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
