@@ -5,12 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Manipulation</title>
     <link href="./output.css" rel="stylesheet" />
-    <script src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
   </head>
-  <body>
-    <h1 class="text-2xl">Hello.</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, est!
-    </p>
+  <body class="w-screen min-h-screen px-5 sm:px-20 lg:px-40 2xl:px-60">
+    <main class="pt-10">
+      <h1 class="text-4xl">DOM and BOM manipulation.</h1>
+      <section class="my-4">
+        <h2 class="text-2xl mb-2">First exercise: Counter.</h2>
+        <div class="w-full flex justify-around">
+          <button
+            id="btn-increase"
+            class="cursor-pointer rounded-2xl px-5 py-2 bg-blue-400 text-2xl font-bold"
+          >
+            +
+          </button>
+          <input
+            class="text-center bg-gray-300 rounded-2xl"
+            readonly
+            type="text"
+            name="my-counter"
+            id="inp-counter"
+          />
+          <button
+            id="btn-decrease"
+            class="cursor-pointer rounded-2xl px-5 py-2 bg-blue-400 text-2xl font-bold"
+          >
+            -
+          </button>
+        </div>
+      </section>
+      <section class="my-4">
+        <h2 class="text-2xl mb-2">¿What's BOM?</h2>
+        <p>
+          The Browser Object Model (BOM) is the set of objects provided by the
+          web browser that allows JavaScript to interact with the browser
+          environment beyond the content of the page itself. While the DOM
+          focuses on the document’s structure, the BOM includes objects like
+          window, navigator, location, history, and screen, which give
+          developers access to features such as opening new tabs, detecting the
+          user’s device, navigating to new URLs, or interacting with the
+          browser’s history. In essence, the BOM acts as the bridge between
+          JavaScript and the browser’s functionality, enabling scripts to
+          control and respond to the environment in which a webpage runs.
+        </p>
+      </section>
+    </main>
   </body>
 </html>
