@@ -35,18 +35,25 @@
         </div>
       </section>
       <section class="my-4">
-        <h2 class="text-2xl mb-2">¿What's BOM?</h2>
-        <p>
-          The Browser Object Model (BOM) is the set of objects provided by the
-          web browser that allows JavaScript to interact with the browser
-          environment beyond the content of the page itself. While the DOM
-          focuses on the document’s structure, the BOM includes objects like
-          window, navigator, location, history, and screen, which give
-          developers access to features such as opening new tabs, detecting the
-          user’s device, navigating to new URLs, or interacting with the
-          browser’s history. In essence, the BOM acts as the bridge between
-          JavaScript and the browser’s functionality, enabling scripts to
-          control and respond to the environment in which a webpage runs.
+        <h2 class="text-2xl mb-2">Second exercise: change paragraph.</h2>
+        <div class="w-full grid grid-cols-12 gap-4">
+          <input
+            class="col-span-9 bg-gray-200 p-2 rounded border-2 border-orange-400 focus:outline-none text-lg"
+            id="inpChangeText"
+            type="text"
+            placeholder="Write here..."
+          />
+          <button
+            id="btnChangeText"
+            class="col-span-3 bg-orange-400 text-lg text-white p-2 rounded-lg cursor-pointer border-orange-300 border-2"
+          >
+            Change text
+          </button>
+        </div>
+
+        <p id="paragraphChangeText" class="my-4">
+          Once you click the button above, the content of this paragraph will
+          change to whatever you have written.
         </p>
       </section>
     </main>

@@ -12,15 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btnIncrease = document.getElementById("btn-increase");
   const btnDecrease = document.getElementById("btn-decrease");
+  const updateCounter = () => {
+    inpCounter.value = counter;
+    // When toggle a class use ("class-name", condition)
+    inpCounter.classList.toggle("text-red-500", counter < 0);
+  };
 
   btnIncrease.addEventListener("click", () => {
-    counter += 1;
-    if (counter >= 0) inpCounter.classList.remove("text-red-500");
-    inpCounter.value = counter;
+    counter++;
+    updateCounter();
   });
   btnDecrease.addEventListener("click", () => {
-    counter -= 1;
-    if (counter < 0) inpCounter.classList.add("text-red-500");
-    inpCounter.value = counter;
+    counter--;
+    updateCounter();
+  });
+
+  const btnChangeText = document.getElementById("btnChangeText");
+  const inpChangeText = document.getElementById("inpChangeText");
+  const paragraphChangeText = document.getElementById("paragraphChangeText");
+  btnChangeText.addEventListener("click", () => {
+    paragraphChangeText.textContent = inpChangeText.value;
+    inpChangeText.value = "";
   });
 });
