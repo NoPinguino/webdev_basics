@@ -6,6 +6,7 @@
     <title>To Do List</title>
     <script src="script.js" type="module" defer></script>
     <link href="./output.css" rel="stylesheet" />
+    <link href="./input.css" rel="stylesheet" />
   </head>
   <body class="w-screen min-h-screen bg-gray-700">
     <main class="p-10 grid grid-cols-12 gap-6">
@@ -49,7 +50,9 @@
         class="bg-red-500/85 col-span-12 lg:col-span-6 p-6 rounded-2xl"
       >
         <h2 class="text-lg text-gray-50 font-bold">High priority list:</h2>
-        <ul id="high-priority-list" class="bg-gray-50 rounded mt-4 p-4"></ul>
+        <ul id="high-priority-list" class="bg-gray-50 rounded mt-4 p-4">
+          <p id="empty_high-list">Your do-ables will appear here.</p>
+        </ul>
       </div>
       <!--- NORMAL PRIORITY LIST --->
       <div
@@ -57,7 +60,9 @@
         class="bg-orange-400 col-span-12 lg:col-span-6 p-6 rounded-2xl"
       >
         <h2 class="text-lg text-gray-50 font-bold">Normal priority list:</h2>
-        <ul id="normal-priority-list" class="bg-gray-50 rounded mt-4 p-4"></ul>
+        <ul id="normal-priority-list" class="bg-gray-50 rounded mt-4 p-4">
+          <p id="empty_normal-list">Your do-ables will appear here.</p>
+        </ul>
       </div>
     </main>
   </body>
