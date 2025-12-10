@@ -43,7 +43,6 @@ window.onload = async function () {
     over_image,
     bg_image,
     objBird,
-    pipe_image,
     floor_image,
   );
 
@@ -72,41 +71,18 @@ window.onload = async function () {
 function gameLoop(t, ctx, myGameBoard) {
   // last_t storage t on last call of recursive function, first time last_t = t
   if (last_t === null) last_t = t;
-
   const dt = (t - last_t) / 16.67; // ensueres that game behaves always like 60fps (same for slow and fast computers)
   last_t = t;
 
   // Bird phisycs
-  const myBird = myGameBoard.objBird;
-  myBird.velocity += myBird.gravity * dt;
-  myBird.birdCoordY += myBird.velocity * dt;
+  myGameBoard.objBird.velocity += myGameBoard.objBird.gravity * dt;
+  myGameBoard.objBird.birdCoordY += myGameBoard.objBird.velocity * dt;
+  // Check methods:
+  myGameBoard.checkBirdColisions();
+  myGameBoard.objBird.updateImage();
 
-  // Colision with the floor:
-  if (
-    myBird.birdCoordY >=
-    myGameBoard.board_h -
-      myGameBoard.floor_image.height -
-      myBird.bird_image.height
-  ) {
-    myBird.birdCoordY =
-      myGameBoard.board_h -
-      myGameBoard.floor_image.height -
-      myBird.bird_image.height;
-  }
+  myGameBoard.reprintBoard(ctx, myGameBoard);
 
-  // Select bird_images
-  if (myBird.velocity >= 3) {
-    myBird.bird_image = myBird.bird_imageList[0];
-  } else if (myBird.velocity <= -3) {
-    myBird.bird_image = myBird.bird_imageList[2];
-  } else {
-    myBird.bird_image = myBird.bird_imageList[1];
-  }
-
-  // Clear last frame.
-  ctx.clearRect(0, 0, myGameBoard.board_w, myGameBoard.board_h);
-  // Print new frame.
-  printBoard(ctx, myGameBoard);
   // Request a new frame (executes when browser is ready)
   requestAnimationFrame((t) => gameLoop(t, ctx, myGameBoard));
 }
@@ -117,32 +93,6 @@ function loadImage(path) {
     img.onload = () => resolve(img);
   });
 }
-function printBoard(ctx, myGameBoard) {
-  /*
-  PRINT BOARD ELEMENTS:
-  */
-  ctx.drawImage(
-    myGameBoard.bg_image,
-    myGameBoard.board_w - myGameBoard.bg_image.width,
-    myGameBoard.board_h - myGameBoard.bg_image.height,
-    myGameBoard.bg_image.width,
-    myGameBoard.bg_image.height,
-  );
-  ctx.drawImage(
-    myGameBoard.objBird.bird_image,
-    myGameBoard.objBird.birdCoordX,
-    myGameBoard.objBird.birdCoordY,
-    myGameBoard.objBird.bird_image.width,
-    myGameBoard.objBird.bird_image.height,
-  );
-  ctx.drawImage(
-    myGameBoard.floor_image,
-    myGameBoard.board_w - myGameBoard.floor_image.width,
-    myGameBoard.board_h - myGameBoard.floor_image.height,
-    myGameBoard.floor_image.width,
-    myGameBoard.floor_image.height,
-  );
-}
 //----- Classes: -----
 class Board {
   constructor(
@@ -152,8 +102,8 @@ class Board {
     over_image,
     bg_image,
     objBird,
-    pipe_image,
     floor_image,
+    pipes,
   ) {
     this.board_w = board_w;
     this.board_h = board_h;
@@ -161,8 +111,53 @@ class Board {
     this.over_image = over_image;
     this.bg_image = bg_image;
     this.objBird = objBird;
-    this.pipe_image = pipe_image;
     this.floor_image = floor_image;
+    this.pipes = pipes;
+  }
+
+  // Re-print:
+  reprintBoard(ctx) {
+    // Clear last frame.
+    ctx.clearRect(0, 0, this.board_w, this.board_h);
+    // Print new frame.
+    ctx.drawImage(
+      this.bg_image,
+      this.board_w - this.bg_image.width,
+      this.board_h - this.bg_image.height,
+      this.bg_image.width,
+      this.bg_image.height,
+    );
+    ctx.drawImage(
+      this.objBird.bird_image,
+      this.objBird.birdCoordX,
+      this.objBird.birdCoordY,
+      this.objBird.bird_image.width,
+      this.objBird.bird_image.height,
+    );
+    ctx.drawImage(
+      this.floor_image,
+      this.board_w - this.floor_image.width,
+      this.board_h - this.floor_image.height,
+      this.floor_image.width,
+      this.floor_image.height,
+    );
+  }
+
+  // Bird colisions:
+  checkBirdColisions() {
+    // Ceiling colision:
+    if (this.objBird.birdCoordY < 0) {
+      this.objBird.birdCoordY = 0;
+    }
+    // Floor colisions:
+    if (
+      this.objBird.birdCoordY >
+      this.board_h - this.floor_image.height - this.objBird.bird_image.height
+    ) {
+      // CHANGE THIS AFTER FOR GAME OVER (at the moment is just colision):
+      this.objBird.birdCoordY =
+        this.board_h - this.floor_image.height - this.objBird.bird_image.height;
+    }
   }
 }
 class Bird {
@@ -176,5 +171,23 @@ class Bird {
     this.velocity = 0;
     this.gravity = 0.25;
     this.jumpImpulse = 5;
+  }
+
+  updateImage() {
+    if (this.velocity > 3) {
+      this.bird_image = this.bird_imageList[2]; // Ascending image
+    } else if (this.velocity < -3) {
+      this.bird_image = this.bird_imageList[0]; // Descending image
+    } else {
+      this.bird_image = this.bird_imageList[1]; // Steady image
+    }
+  }
+}
+class Pipe {
+  constructor(coordX, gap_size = 60, pipe_image, velocity) {
+    this.coordX = coordX;
+    this.gap_size = gap_size;
+    this.pipe_image = pipe_image;
+    this.velocity = velocity;
   }
 }
