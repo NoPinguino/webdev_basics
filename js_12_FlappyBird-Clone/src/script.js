@@ -1,193 +1,143 @@
-let gameOn = false;
-let last_t = null;
+const BOARD_WIDTH = 512;
+const BOARD_HEIGHT = 288;
+const GRAVITY = 0.5;
+const PIPE_GAP = 80;
 
 window.onload = async function () {
-  // Board creation:
-  const board = document.getElementById("board");
-  const board_w = 288;
-  const board_h = 512;
-
-  board.width = board_w;
-  board.height = board_h;
-
-  const ctx = board.getContext("2d");
-
-  // JavaScript list destruction
+  const canvas_board = document.getElementById("idBoard");
+  const ctx = canvas_board.getContext("2d");
+  // Images load:
   const [
-    start_image,
-    over_image,
     bg_image,
-    bird_imageUP,
-    bird_imageMID,
-    bird_imageDOWN,
-    pipe_image,
     floor_image,
+    birdDown_image,
+    birdMid_image,
+    birdUp_image,
+    bottomPipe_image,
+    topPipe_image,
   ] = await Promise.all([
-    loadImage("./assets/sprites/message.png"),
-    loadImage("./assets/sprites/gameover.png"),
     loadImage("./assets/sprites/background-day.png"),
+    loadImage("./assets/sprites/base.png"),
     loadImage("./assets/sprites/redbird-downflap.png"),
     loadImage("./assets/sprites/redbird-midflap.png"),
     loadImage("./assets/sprites/redbird-upflap.png"),
-    loadImage("./assets/sprites/pipe-green.png"),
-    loadImage("./assets/sprites/base.png"),
+    loadImage("./assets/sprites/bottomPipe.png"),
+    loadImage("./assets/sprites/topPipe.png"),
   ]);
 
-  const bird_images = [bird_imageDOWN, bird_imageMID, bird_imageUP];
-  const objBird = new Bird(board_w / 8, board_h / 2, bird_images);
-
-  const myGameBoard = new Board(
-    board_w,
-    board_h,
-    start_image,
-    over_image,
-    bg_image,
-    objBird,
-    floor_image,
-  );
-
-  // Start Game:
-  ctx.drawImage(
-    myGameBoard.start_image,
-    myGameBoard.board_w / 2 - myGameBoard.start_image.width / 2,
-    myGameBoard.board_h / 2 - myGameBoard.start_image.height / 2,
-    myGameBoard.start_image.width,
-    myGameBoard.start_image.height,
-  );
-  addEventListener("keydown", (k) => {
-    if (k.key === " ") {
-      gameOn = true;
-      myGameBoard.objBird.velocity = 0;
-      requestAnimationFrame((t) => gameLoop(t, ctx, myGameBoard)); // t = time browser took to call the new frame
-    }
-  });
-  // Controls:
-  addEventListener("keydown", (k) => {
-    if (k.key === " " && gameOn === true) {
-      myGameBoard.objBird.velocity -= myGameBoard.objBird.jumpImpulse;
-    }
-  });
+  // Intance Bird:
+  const myBirdImages = [birdDown_image, birdMid_image, birdUp_image];
+  const myBird = new Bird(BOARD_WIDTH / 8, BOARD_HEIGHT / 2, myBirdImages);
+  // Instance PipeSet and Pipes:
+  const pipeSet_list = [];
+  // In case 3 pipes is not enought, change the for loop range:
+  for (let i = 0; i < 3; i++) {
+    const myBottomPipe = new Pipe(
+      bottomPipe_image,
+      BOARD_WIDTH / 2,
+      BOARD_HEIGHT,
+    );
+    const myTopPipe = new Pipe(topPipe_image, BOARD_WIDTH / 2, BOARD_HEIGHT);
+    const myPipeSet = new PipeSet(BOARD_WIDTH / 2, myTopPipe, myBottomPipe);
+    pipeSet_list.push(myPipeSet);
+  }
+  // Instance Board:
+  const myBoard = new Board(bg_image, floor_image, myBird, pipeSet_list, 0);
 };
-function gameLoop(t, ctx, myGameBoard) {
-  // last_t storage t on last call of recursive function, first time last_t = t
-  if (last_t === null) last_t = t;
-  const dt = (t - last_t) / 16.67; // ensueres that game behaves always like 60fps (same for slow and fast computers)
-  last_t = t;
 
-  // Bird phisycs
-  myGameBoard.objBird.velocity += myGameBoard.objBird.gravity * dt;
-  myGameBoard.objBird.birdCoordY += myGameBoard.objBird.velocity * dt;
-  // Check methods:
-  myGameBoard.checkBirdColisions();
-  myGameBoard.objBird.updateImage();
-
-  myGameBoard.reprintBoard(ctx, myGameBoard);
-
-  // Request a new frame (executes when browser is ready)
-  requestAnimationFrame((t) => gameLoop(t, ctx, myGameBoard));
-}
+// Load image function:
 function loadImage(path) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.src = path;
-    img.onload = () => resolve(img);
+  return Promise((resolve) => {
+    const image = new Image();
+    image.src(path);
+    image.onload = () => resolve(image);
   });
 }
-//----- Classes: -----
+// Game loop:
+function gameLoop() {}
+// Board object:
 class Board {
-  constructor(
-    board_w,
-    board_h,
-    start_image,
-    over_image,
-    bg_image,
-    objBird,
-    floor_image,
-    pipes,
-  ) {
-    this.board_w = board_w;
-    this.board_h = board_h;
-    this.start_image = start_image;
-    this.over_image = over_image;
+  constructor(bg_image, floor_image, myBird, pipes, points) {
     this.bg_image = bg_image;
-    this.objBird = objBird;
     this.floor_image = floor_image;
+    this.myBird = myBird;
     this.pipes = pipes;
+    this.points = points;
   }
 
-  // Re-print:
-  reprintBoard(ctx) {
-    // Clear last frame.
-    ctx.clearRect(0, 0, this.board_w, this.board_h);
-    // Print new frame.
+  drawBoard(ctx) {
+    // Draw background:
     ctx.drawImage(
       this.bg_image,
-      this.board_w - this.bg_image.width,
-      this.board_h - this.bg_image.height,
+      0,
+      0,
       this.bg_image.width,
       this.bg_image.height,
     );
-    ctx.drawImage(
-      this.objBird.bird_image,
-      this.objBird.birdCoordX,
-      this.objBird.birdCoordY,
-      this.objBird.bird_image.width,
-      this.objBird.bird_image.height,
-    );
+    // Draw floor:
     ctx.drawImage(
       this.floor_image,
-      this.board_w - this.floor_image.width,
-      this.board_h - this.floor_image.height,
+      0,
+      BOARD_HEIGHT - this.floor_image.height,
       this.floor_image.width,
       this.floor_image.height,
     );
-  }
-
-  // Bird colisions:
-  checkBirdColisions() {
-    // Ceiling colision:
-    if (this.objBird.birdCoordY < 0) {
-      this.objBird.birdCoordY = 0;
-    }
-    // Floor colisions:
-    if (
-      this.objBird.birdCoordY >
-      this.board_h - this.floor_image.height - this.objBird.bird_image.height
-    ) {
-      // CHANGE THIS AFTER FOR GAME OVER (at the moment is just colision):
-      this.objBird.birdCoordY =
-        this.board_h - this.floor_image.height - this.objBird.bird_image.height;
-    }
+    // Draw bird:
+    this.myBird.drawBird(ctx);
   }
 }
+// Bird object:
 class Bird {
-  constructor(birdCoordX, birdCoordY, bird_images) {
-    this.birdCoordX = birdCoordX;
-    this.birdCoordY = birdCoordY;
+  constructor(bird_X, bird_Y, bird_imageList) {
+    this.bird_X = bird_X;
+    this.bird_Y = bird_Y;
+    this.bird_imageList = bird_imageList;
+    this.bird_image = bird_imageList[1];
 
-    this.bird_imageList = bird_images;
-    this.bird_image = bird_images[1];
-
-    this.velocity = 0;
-    this.gravity = 0.25;
-    this.jumpImpulse = 5;
+    this.falling_velocity = 0;
+    this.jump_impuse = 6;
   }
 
-  updateImage() {
-    if (this.velocity > 3) {
-      this.bird_image = this.bird_imageList[2]; // Ascending image
-    } else if (this.velocity < -3) {
-      this.bird_image = this.bird_imageList[0]; // Descending image
-    } else {
-      this.bird_image = this.bird_imageList[1]; // Steady image
-    }
+  birdJump() {
+    this.falling_velocity += this.jump_impuse;
+  }
+
+  birdFall() {
+    // Updates bird Y coordinate:
+    this.falling_velocity += GRAVITY;
+    this.bird_Y += this.falling_velocity;
+    // Update actual image depending on falling velocity:
+    if (this.falling_velocity > 2) this.bird_image = this.bird_imageList[0];
+    if (this.falling_velocity < -2) this.bird_image = this.bird_imageList[2];
+    if (this.falling_velocity < 2 && this.falling_velocity > -2)
+      this.bird_image = this.bird_imageList[1];
+  }
+
+  drawBird(ctx) {
+    ctx.drawImage(
+      this.bird_image,
+      this.bird_X,
+      this.bird_Y,
+      this.bird_image.width,
+      this.bird_image.height,
+    );
   }
 }
+// PipeSet object:
+class PipeSet {
+  constructor(pipeSet_X, topPipe, bottomPipe) {
+    this.pipeSet_X = pipeSet_X;
+    this.topPipe = topPipe;
+    this.bottomPipe = bottomPipe;
+  }
+}
+// Pipe object:
 class Pipe {
-  constructor(coordX, gap_size = 60, pipe_image, velocity) {
-    this.coordX = coordX;
-    this.gap_size = gap_size;
+  constructor(pipe_image, pipe_X, pipe_Y) {
     this.pipe_image = pipe_image;
-    this.velocity = velocity;
+    this.pipe_X = pipe_X;
+    this.pipe_Y = pipe_Y;
+    this.pipe_width = this.pipe_image.width;
+    this.pipe_height = this.pipe_image.height;
   }
 }
